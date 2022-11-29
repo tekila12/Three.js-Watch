@@ -6,13 +6,12 @@ export const  Watch = (props) =>  {
     const {nodes, materials} =useGLTF('./watch-v1.glb')
   return (
 <>
-<group ref={ref}  {...props} dispose={null}>
+          <group ref={ref} shadowMap  {...props} dispose={null}>
 
-    <mesh castShadow receiveShadow geometry={nodes.Object006_watch_0.geometry}
-    material={materials.watch}/>
+              <mesh castShadow receiveShadow geometry={nodes.Object006_watch_0.geometry}
+                  material={materials.watch} />
 
-   
-</group>
+          </group>
 </>
   )
 }

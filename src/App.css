@@ -3,6 +3,10 @@
 }
 
 .bg-new{
-background: #2d4967;
+background: #365b82;
 color: #fff;
+}
+
+.canvas__new{
+ height: 500px; 
 }

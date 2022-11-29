@@ -1,6 +1,7 @@
 import './App.css';
 import {Canvas} from '@react-three/fiber'
 import { Watch } from './Watch';
+import { ContactShadows, PresentationControls } from '@react-three/drei';
 
 function App() {
   return (
@@ -14,29 +15,41 @@ function App() {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">ROLEX</a>
+          <a class="nav-link active" aria-current="page" href="#">MONACO</a>
         </li>
   
       </ul>
     </div>
   </div>
 </nav>
-<div class='bg-new'>
-  <div class='row'>
-  <div class='col-lg-5 col-md-5 col-sm-12'>
-<h3 class='display-4 text-center'>Check out our best Rolex watch</h3>
+<div className='bg-new'>
+  <div className='row'>
+  <div className='col-lg-5 col-md-5 col-sm-12 d-flex align-items-center justify-content-center text-center'>
+<h3 className='display-4 text-center '>Check out our best MONACO watch</h3>
 </div>
-<div class='col-lg-6 col-md-5 col-sm-12'></div>
-<Canvas>
+<div class='col-lg-6 col-md-5 col-sm-12'>
+<Canvas shadows dpr={[1,2]} camera={{position:[0,0,4], fov:50}}
+
+style={{height:"500px"}}>
 <ambientLight intensity={0.2} />
 <spotLight position={[10,10,10]}
  angle={0.15}
   penumbra={1}
    shadow-mapSize={[512,512]}
    castShadow/>
-
-<Watch rotation={[Math.PI /2, 0, 0]} position={[0, 0.25,0]} scale={0.003}/>
+<PresentationControls global snap={{mass:3, tension:1500}}
+config={{mass:2, tension:500}}
+polar={[-Math.PI /3, Math.PI /2]}
+azimuth={[-Math.PI /1,4, Math.PI /2]}>
+<Watch rotation={[Math.PI /2, 9.46, 3.1]} position={[0, 0.25,1]} scale={0.0022}/>
+</PresentationControls>
+<ContactShadows  rotateX={-Math.PI /2} position={[0, -1.4, 0]} opacity={0.75}
+width={10}
+height={10}
+blur={2.3}
+far={2}/>
 </Canvas>
+</div>
 </div>
 </div>
 
