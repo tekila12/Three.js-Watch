@@ -10,3 +10,11 @@ color: #fff;
 .canvas__new{
  height: 500px; 
 }
+
+.annotation{
+  padding: 10px, 5px;
+  background: #1c1c;
+  width: 50px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
