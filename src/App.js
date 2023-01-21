@@ -1,8 +1,20 @@
 import './App.css';
 import {Canvas} from '@react-three/fiber'
 import { Watch } from './Watch';
-import { ContactShadows, PresentationControls } from '@react-three/drei';
+import { ContactShadows, PresentationControls, useProgress, Text } from '@react-three/drei';
 import { Suspense } from 'react';
+
+
+const  Loader=()=> {
+  const { active, progress, errors, item, loaded, total } = useProgress()
+ 
+  return  (
+      <Text color="white" anchorX="center" anchorY="middle" >Loading 3D Model.  It can take some time {progress.toFixed(2)} %  </Text>
+    
+  )       
+}
+
+
 
 function App() {
   return (
@@ -47,7 +59,7 @@ function App() {
                 polar={[-Math.PI / 3, Math.PI / 2]}
                 azimuth={[-Math.PI / 1, 4, Math.PI / 2]}>
                   
-                <Suspense fallback={null}>
+                <Suspense fallback={<Loader />}>
                   <Watch rotation={[Math.PI / 2, 1.5, 1]} position={[-0.5, 0.55, 1]} scale={0.0024} />
                 </Suspense>
 
